@@ -1,4 +1,4 @@
-const api = {
+/*const api = {
   key: "/api/v1/anl/synoptic/locale/:country?token=your-app-token"
   base: "http://apiadvisor.climatempo.com.br/api/v1/anl/synoptic/locale/BR?token=your-app-token"
 
@@ -50,4 +50,25 @@ function dateBuilder(d) {
   let year = d.getFullYear();
 
   return `${day} ${date} ${month} ${year}`;
+}*/
+
+const key = "28178d76fc0a9288d5eea106a9dad317"
+
+function dataScreen(data) {
+  
 }
+
+
+/*function clickbutton() {
+  const input = document.querySelector(".search-box").value
+}*/
+
+const searchBox = document.querySelector('.search-box');
+searchBox.addEventListener('keypress', setQuery);
+
+
+
+async function takeCity(searchBox) {
+  const data = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${searchBox}&appid=${key}`).then(response => response.json())
+}
+
