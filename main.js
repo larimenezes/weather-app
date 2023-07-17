@@ -1,7 +1,6 @@
-let chave = "28178d76fc0a9288d5eea106a9dad317"
+let key = "28178d76fc0a9288d5eea106a9dad317"
 
-function colocarNaTela(dados) {
-  console.log(dados)
+function colocarDadosNaTela(dados) {
   document.querySelector(".cidade").innerHTML = "Tempo em " + dados.name
   document.querySelector(".temp").innerHTML = Math.floor(dados.main.temp) + "°C"
   document.querySelector(".descricao").innerHTML = dados.weather[0].description
@@ -10,16 +9,9 @@ function colocarNaTela(dados) {
 }
 
 async function buscarCidade(cidade) {
-  let dados = await fetch("https://api.openweathermap.org/data/2.5/weather?q=" +
-  cidade +
-  "&appid=" +
-  chave +
-  "&lang=pt_br" +  //mudar linguagem
-  "&units=metric"
-  )
-  .then(resposta => resposta.json())
+  let dados = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cidade}&appid=${key}&lang=pt_br&units=metric`).then(resposta => resposta.json()) 
 
-  colocarNaTela(dados) 
+  colocarDadosNaTela(dados) 
 }
 
 function cliqueiNoBotao() {
